@@ -22,12 +22,12 @@ export const TopMenu = () => {
                 </Link>
                 <Link
                     className='m-2 rounded-md transition-all hover:bg-gray-100'
-                    href={'/category/men'}>
+                    href={'/category/women'}>
                     Mujeres
                 </Link>
                 <Link
                     className='m-2 rounded-md transition-all hover:bg-gray-100'
-                    href={'/category/men'}>
+                    href={'/category/kids'}>
                     Niños
                 </Link>
             </div>
