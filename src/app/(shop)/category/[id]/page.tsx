@@ -1,5 +1,5 @@
 import { ProductGrid, Title } from "@/components";
-import { Product, Gender } from "@/interfaces";
+import { Gender } from "@/interfaces";
 import { initialData } from "@/seed/seed";
 
 interface Props {
@@ -18,7 +18,7 @@ export default function CategoryPage({ params }: Props) {
     'men': 'Hombres',
     'women': 'Mujeres',
     'kid': 'Niños',
-    'unisex': 'Todos'
+    'unisex': 'Todxs'
   }
 
   // if(id === 'kids'){
