@@ -1,8 +1,9 @@
 'use client'
-import Link from 'next/link';
 import React from 'react'
+import clsx from 'clsx'
 import { IoCloseOutline, IoLogInOutline, IoLogOutOutline, IoPeopleOutline, IoPersonOutline, IoSearchOutline, IoShirtOutline, IoTicketOutline } from 'react-icons/io5';
-import { SidebarItem } from './SidebarItem';
+import { SidebarItem } from '@/components/index';
+import { useUIStore } from '@/store';
 
 const sidebarItems = [
     {
@@ -47,24 +48,45 @@ const sidebarItemsAdministration = [
 
 
 export const Sidebar = () => {
+
+    const isSideMenuOpen = useUIStore(state => state.isSideMenuOpen);
+    const closeMenu = useUIStore(state => state.closeSideMenu);
+
     return (
         <>
-            {/* Black bg */}
-            <div
-                className='fixed top-0 left-0 w-screen h-screen z-10 bg-black opacity-30'>
-            </div>
+            {/* Manejo de estado global con Zustand */}
+            {
+                isSideMenuOpen && (
+                    // Black bg 
+                    <div
+                        className='fixed top-0 left-0 w-screen h-screen z-10 bg-black opacity-30'>
+                    </div>
+                )
+            }
 
-            {/* Blur */}
-            <div
-                className='fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm'>
-            </div>
+            {
+                isSideMenuOpen && (
+                    // Blur
+                    <div
+                        onClick={closeMenu}
+                        className='fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm'>
+                    </div>
+                )
+            }
+
+            {/* Aquí se va a manejar el estado global de otra manera para que sea más manejable el navbar */}
+            {/* Con clsx */}
 
             {/* SideMenu */}
             <nav
-                //TODO: Efecto de slide
-                className='fixed p-5 right-0 top-0 w-[400px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300 '>
+                className={
+                    clsx(
+                        'fixed p-5 right-0 top-0 w-[400px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300 ',
+                        {'translate-x-full': !isSideMenuOpen} //! Agrega esta clase si el menu no está abierto (desaparece side menu)
+                    )
+                }>
                 <IoCloseOutline size={40} className='absolute top-5 right-5 cursor-pointer'
-                    onClick={() => console.log('click')} />
+                    onClick={() => closeMenu()} /> 
 
                 {/* Input */}
                 <div className='relative mt-14'>
@@ -91,10 +113,6 @@ export const Sidebar = () => {
                     ))
                 }
             </nav>
-
-
-
-
         </>
     )
 }

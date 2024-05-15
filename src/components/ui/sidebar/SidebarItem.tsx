@@ -1,4 +1,3 @@
-import { strict } from 'assert'
 import Link from 'next/link'
 import React, { ReactElement } from 'react'
 
@@ -13,7 +12,7 @@ export const SidebarItem = ({ href, icon, name }: Props) => {
         <>
             <Link
                 href={href}
-                className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
+                className='flex items-center mt-5 p-2 hover:bg-gray-100 rounded transition-all'>
                 {icon}
                 <span className='ml-3 text-lg'>{name}</span>
             </Link>
