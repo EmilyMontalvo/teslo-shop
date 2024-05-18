@@ -9,3 +9,4 @@ export * from './ui/sidebar/SidebarItem';
 export * from './product/size-selector/SizeSelector'
 export * from './product/quantity-selector/QuantitySelector'
 export * from './product/slideshow/SlideShow'
+export * from './product/slideshow/MobileSlideShow'
