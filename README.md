@@ -3,22 +3,26 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Description 
 E-commerce Tesla shop
 
-## Run on dev
-1. Clonar el repositorio
-2. Instalar dependencias ```npm install```
-3. Correr proyecto  ```npm run dev```
+## Steps
+1. Clone repository
+2. Copy ```.env.template``` file and rename to ```.env```
+3. Change environment variables
+4. Install dependencies ```npm install```
+
+## Configure docker
+5. Validate docker ```docker --version```
+6. Data base up 5.  ```docker compose up -d```
+
+## Run proyect
+7.  ```npm run dev``
+
+## Learn More
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Run on prod
-
-
-
-## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
