@@ -76,10 +76,6 @@ export default async function ProductPage({ params }: Props) {
 
         <AddToCart product={product}/>
 
-
-        {/* Button */}
-        <button className="btn-primary my-5">Agregar al Carrito</button>
-
         {/* Descripción */}
         <h3 className="font-bold text-sm">Descripción</h3>
         <p className="font-light">{product.description}</p>
