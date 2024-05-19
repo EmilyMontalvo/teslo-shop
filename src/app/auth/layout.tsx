@@ -4,7 +4,12 @@ export default function ShopLayout({ children }: {
 }) {
     return (
         <>
-            <main className="bg-gray-500 min-h-screen">{children}</main>
+            <main className="flex justify-center">
+                <div className="w-full sm:w-[350px] px-10">
+
+                {children}
+                </div>
+                </main>
         </>
     );
 }
