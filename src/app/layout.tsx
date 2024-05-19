@@ -8,7 +8,7 @@ import { inter } from "@/config/fonts";
 export const metadata: Metadata = {
   title: {
     template: '%s - Teslo Shop',
-    default: 'home'
+    default: 'Home - Teslo Shop'
   },
   description: "Una tienda virtual ecommerce",
 };
