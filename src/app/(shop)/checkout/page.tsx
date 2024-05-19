@@ -81,7 +81,7 @@ export default function CheckOutPage() {
 
 <p className="mb-5">
   {/* Disclaimer */}
-  <span className="text-xs">Al hacer click en 'Colocar Orden', aceptas nuestro <a href="" className="underline">Términos y condiciones</a></span>
+  <span className="text-xs">Al hacer click en &apos;Colocar Orden&apos;, aceptas nuestro <a href="" className="underline">Términos y condiciones</a></span>
 </p>
 
               <Link href={"/orders/123"} className="flex btn-primary justify-center"> Colocar orden</Link>
