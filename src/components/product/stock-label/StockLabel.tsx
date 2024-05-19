@@ -4,29 +4,46 @@ import { titleFont } from '@/config/fonts'
 import React, { useEffect, useState } from 'react'
 
 interface Props {
-    slug: string
+  slug: string
 }
 
 
-export const StockLabel = ({slug}:Props) => {
+export const StockLabel = ({ slug }: Props) => {
 
   const [stock, setStock] = useState(0);
-  const [isLoading, setIsLoading] =useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
 
   useEffect(() => {
     getStock()
   }, [])
 
-  const getStock = async () =>{
+  const getStock = async () => {
     const inStock = await getStockBySlug(slug);
     setStock(inStock)
-   
+    setIsLoading(false)
+
   }
-  
+
   return (
-    <h1 className={`${titleFont.className} antialised font-bold text-lg`}>
-          Stock:  {stock}
-        </h1>
+    <>
+      {
+        isLoading
+          ? (
+            <h1 className={`${titleFont.className} antialised font-bold text-lg animate-pulse bg-gray-200`}>
+              &nbsp;
+            </h1>
+          )
+          : (
+
+            <h1 className={`${titleFont.className} antialised font-bold text-lg`}>
+              Stock:  {stock}
+            </h1>
+
+          )
+      }
+
+
+    </>
   )
 }
