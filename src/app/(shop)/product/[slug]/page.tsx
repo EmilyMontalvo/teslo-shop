@@ -1,7 +1,7 @@
 export const revalidate = 10080; //7 días
 
 import { getProductBySlug } from "@/actions";
-import { MobileSlideShow, QuantitySelector, SizeSelector, SlideShow } from "@/components";
+import { MobileSlideShow, QuantitySelector, SizeSelector, SlideShow, StockLabel } from "@/components";
 import { titleFont } from "@/config/fonts";
 
 import { notFound } from "next/navigation";
@@ -27,28 +27,30 @@ export default async function ProductPage({ params }: Props) {
       <div className="col-span-1 md:col-span-2">
 
         {/* Mobile SlideShow */}
-        <MobileSlideShow title={product.title} images={product.images} className="block md:hidden"/>
+        <MobileSlideShow title={product.title} images={product.images} className="block md:hidden" />
 
         {/* Desktop SlideShow */}
-        <SlideShow title={product.title} images={product.images} className="hidden md:block"/>
+        <SlideShow title={product.title} images={product.images} className="hidden md:block" />
       </div>
 
       {/* Product Details */}
       <div className="col-span-1 px-6">
 
+        <StockLabel slug={product.slug} />
         {/*Título */}
         <h1 className={`${titleFont.className} antialised font-bold text-xl`}>
           {product.title}
         </h1>
 
+
         {/* Price */}
         <p className="text-lg mb-5">{product.price}</p>
 
         {/* Selector de Tallas */}
-        <SizeSelector selectedSize={product.sizes[0]} availableSizes={product.sizes}/>
+        <SizeSelector selectedSize={product.sizes[0]} availableSizes={product.sizes} />
 
         {/* Selector de Cantidad */}
-        <QuantitySelector quantity={2}/>
+        <QuantitySelector quantity={2} />
 
 
         {/* Button */}
@@ -57,8 +59,6 @@ export default async function ProductPage({ params }: Props) {
         {/* Descripción */}
         <h3 className="font-bold text-sm">Descripción</h3>
         <p className="font-light">{product.description}</p>
-
-
 
       </div>
     </div>
