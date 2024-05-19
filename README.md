@@ -14,13 +14,18 @@ E-commerce Tesla shop
 6. Data base up 5.  ```docker compose up -d```
 
 ## Install Prisma
-install the Prisma CLI as a development dependency ```npm install prisma --save-dev```
-set up Prisma ORM ```npx prisma init --datasource-provider PostgreSQL```
+7. Install the Prisma CLI as a development dependency ```npm install prisma --save-dev```
+8. Set up Prisma ORM ```npx prisma init --datasource-provider PostgreSQL```
 ### Optional if you have an existing db
 - Run ```prisma db pull``` to turn your database schema into a Prisma schema.
 
-Run ```prisma generate``` to generate the Prisma Client.
+9. Run ```npx prisma generate``` to generate the Prisma Client.
+10. Add the models to your ```schema.prisma```
+11. Create the SQLite database ```npx prisma migrate dev --name migrationName```
+12. Run ```npx prisma generate``` to generate the Prisma Client.
 
+## Seed
+13. Execute seed ```npm run seed```
 
 
 ## Run proyect
