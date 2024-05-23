@@ -44,7 +44,7 @@ export default function CartPage() {
                   <div>
                     <p>{product.title}</p>
                     <p>{product.price}</p>
-                    <QuantitySelector quantity={3} />
+                    <QuantitySelector quantity={3} onQuantityChanged={} />
                     <button className="underline mb-5">Remover</button>
                   </div>
                 </div>
