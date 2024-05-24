@@ -20,6 +20,8 @@ export const AddToCart = ({ product }: Props) => {
         setPosted(true)
         if (!size) return null;
 
+        //TODO Add to cart
+
     }
 
 
