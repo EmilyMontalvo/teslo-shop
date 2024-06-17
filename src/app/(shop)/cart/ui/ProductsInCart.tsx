@@ -7,7 +7,8 @@ import Link from 'next/link';
 
 export const ProductsInCart = () => {
     const productInCart = useCartStore(state => state.cart)
-
+    const updatedProductQuantity = useCartStore(state => state.updateProductQuantity)
+    const removeProduct = useCartStore(state => state.removeProduct)
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export const ProductsInCart = () => {
         productInCart.map(product => (
             <div key={`${product.slug}-${product.size}`} className="flex">
                 <Image
-                    src={`/products/${product.image[0]}`}
+                    src={`/products/${product.image}`}
                     width={150}
                     height={100}
                     alt={product.title}
@@ -39,8 +40,10 @@ export const ProductsInCart = () => {
                     </Link>
 
                     <p>{product.price}</p>
-                    <QuantitySelector quantity={3} onQuantityChanged={value => console.log(value)} />
-                    <button className="underline mb-5">Remover</button>
+                    <QuantitySelector quantity={product.quantity} onQuantityChanged={quantity => updatedProductQuantity(product,quantity)} />
+                    <button 
+                    onClick={() => removeProduct(product)}
+                    className="underline mb-5">Remover</button>
                 </div>
             </div>
         ))

@@ -7,8 +7,8 @@ interface State {
     cart: CartProduct[];
     addProductToCart: (product: CartProduct) => void
     getTotalItems: () => number
-    //updateProductQuantity
-    //otro
+    updateProductQuantity: (produtc: CartProduct, quantitty: number) => void
+    removeProduct: (produtc: CartProduct) => void
 }
 
 //Get mem permite obtener el estado actual del Store de zustand
@@ -22,11 +22,11 @@ export const useCartStore = create<State>()(
             cart: [],
 
             getTotalItems: () => {
-                const {cart} = get()
+                const { cart } = get()
 
                 return cart.reduce((total, item) => total + item.quantity, 0)
-                
-             },
+
+            },
 
             addProductToCart: (product: CartProduct) => {
                 const { cart } = get();
@@ -55,6 +55,32 @@ export const useCartStore = create<State>()(
 
                 set({ cart: updatedCartProducts });
 
+            },
+
+            updateProductQuantity: (product: CartProduct, quantity: number) => {
+
+                const { cart } = get();
+                const updatedCartProduct = cart.map(item => {
+
+                    if (item.id === product.id && item.size === product.size) {
+                        return { ...item, quantity: quantity }
+                    }
+
+                    return item;
+
+                })
+
+                set({ cart: updatedCartProduct })
+
+            },
+
+            removeProduct: (produtc: CartProduct) => {
+                const { cart } = get();
+                const updatedCartProduct = cart.filter(
+                    item => item.id !== produtc.id || item.size !== produtc.size
+                );
+
+                set({ cart: updatedCartProduct })
             }
 
         }
